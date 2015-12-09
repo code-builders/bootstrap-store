@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root to: "products#index"
 
   post "/sign-in", to: "sessions#create"
-  get  "/sign-out", to: "sessions#destroy"
+  get  "/sign-out", to: "sessions#destroy", as: :sign_out
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
