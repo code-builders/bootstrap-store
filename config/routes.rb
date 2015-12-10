@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root to: "products#index"
 
+  get  "/admin/products/new", to: "products#new", as: :new_product
   post "/sign-in", to: "sessions#create"
   get  "/sign-out", to: "sessions#destroy", as: :sign_out
 

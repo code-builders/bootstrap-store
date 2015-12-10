@@ -28,6 +28,9 @@
           <li><%= link_to "Contact us", "#" %></li>
           <% if @current_user %>
             <li><%= link_to "Sign out", sign_out_path %></li>
+            <% if @current_user.is_admin? %>
+              <li><%= link_to "New Product", "/admin/products/new" %></li>
+            <% end %>
           <% end %>
         </ul>
       </div>

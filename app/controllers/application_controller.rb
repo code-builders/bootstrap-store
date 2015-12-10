@@ -7,4 +7,12 @@ class ApplicationController < ActionController::Base
   def set_current_user
     @current_user = User.find(session[:user_id]) if session[:user_id]
   end
+
+  def signed_in_as_admin?
+    @current_user && @current_user.is_admin?
+  end
+
+  def authorize_admin
+    redirect_to root_path, notice: "Wrong!" if !signed_in_as_admin?
+  end
 end
